@@ -1,0 +1,25 @@
+{% include 'base.html' %}
+{% block content %}
+
+<h1> CALCULATION HISTORY</h1>
+
+<!-- Clear all icon -->
+<a class="nav-link active" aria-current="page" href="{% url 'clear_history' %}">
+  <i style="font-size:24px" class="fa">&#xf014;</i></a>
+
+<!-- History display here -->
+<div class="card col-md-6">
+  <div class="card-body">
+    <table class="table table-striped table-hover">
+      <tbody>
+      {% for calculation in calculations %}
+        <tr>
+          <td style="text-align:left">{{ calculation.equation }} = {{ calculation.result }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% include 'base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    <h1>DJANGO CALCULATOR</h1>
+
+    <!--Calculator display-->
+	<div class="row1 col-md-6">
+		<div class="col-md-6 " >
+			<div class="card1"> 
+			    <div class="card-body1"> 
+				<form method="get" action="{% url 'answer' %}">
+                    <table>
+                        <tr>
+                            <td colspan="7">
+                                <div class="mb-3 display">
+                                    <input type="text" class="form-control"  id="display" name="display" placeholder="0" value="{{answer}}">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" name="operator" onclick="set('(')" >(</button>
+                            </td>
+                            <td>
+                                <button type="button" name="operator" onclick="set(')')" >)</button>
+                            </td>
+                            <td>
+                                <button type="button" name="operator"  onclick="set('%')">%</button>
+                            </td>
+                            <td>
+                                <button  type="button" name="operator"  onclick="ce()" ><a href="/">CE</a></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" onclick="set('7')" >7</button>
+                            </td>
+                            <td>
+                                <button type="button" onclick="set('8')" >8</button>
+                            </td>
+                            <td>
+                                <button type="button" onclick="set('9')" >9</button>
+                            </td>
+                            <td>
+                                <button  type="button" name="operator"  onclick="set('/')" >/</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button"  onclick="set('4')" >4</button>
+                            </td>
+                            <td>
+                                <button  type="button" onclick="set('5')" >5</button>
+                            </td>
+                            <td>
+                                <button type="button"  onclick="set('6')" >6</button>
+                            </td>
+                            <td>
+                                <button type="button" name="operator" onclick="set('*')" >x</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" onclick="set('1')" >1</button>
+                            </td>
+                            <td>
+                                <button type="button" onclick="set('2')" >2</button>
+                            </td>
+                            <td>
+                                <button type="button" onclick="set('3')" >3</button>
+                            </td>
+                            <td>
+                                <button type="button" name="operator" onclick="set('-')" >-</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" onclick="set('0')" >0</button>
+                            </td>
+                            <td>
+                                <button type="button" onclick="set('.')" >.</button>
+                            </td>
+                            <td>
+                                <button type="submit" name="submit"  >=</button>
+                            </td>
+                            <td>
+                                <button type="button" name="operator"  onclick="set('+')" >+</button>
+                            </td>
+                        </tr>
+                    </table>
+				</form>
+				</div> 
+	        </div> 
+		 </div> 
+	</div>
+</div>
+
+<!--Dispaly text in input textarea -->
+<script type="text/javascript">
+    function set(buttonValueIs){
+        var inputElementIs = document.getElementById("display");
+        inputElementIs.value =  inputElementIs.value + buttonValueIs;
+        $('#display').val(inputElementIs.value);
+}</script>
+
+{% endblock %}
